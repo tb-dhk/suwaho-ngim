@@ -83,6 +83,12 @@ the following tier 2 verbs are often stacked with other verbs to create more com
 
 | word | meaning             | notes                                                                                    |
 | ---- | ------------------- | ---------------------------------------------------------------------------------------- |
+| mwə  | to think            |                                                                                          |
+| myə  | to know             |                                                                                          |
+| nwə  | to be this          | often used as *nwil.hu* or *nyil.hu*, as a demonstrative                                 |
+| nyə  | to be that          | ^                                                                                        |
+| ngwə | to say              |                                                                                          |
+| ngyə | to help             |                                                                                          |
 | pwə  | to start            | aspect                                                                                   |
 | pyə  | to finish           | ^                                                                                        |
 | twə  | to continue         | ^                                                                                        |
@@ -95,12 +101,6 @@ the following tier 2 verbs are often stacked with other verbs to create more com
 | dyə  | to need             |                                                                                          |
 | gwə  | to be a condition   | often used as *gwi.gu*, meaning "in the condition of" or "if"                            |
 | gyə  | to be possible      |                                                                                          |
-| mwə  | to think            |                                                                                          |
-| myə  | to know             |                                                                                          |
-| nwə  | to be this          | often used as *nwil.hu* or *nyil.hu*, as a demonstrative                                 |
-| nyə  | to be that          | ^                                                                                        |
-| ngwə | to say              |                                                                                          |
-| ngyə | to help             |                                                                                          |
 | fwə  | to be also          | quantifiers                                                                              |
 | fyə  | to be only          | ^                                                                                        |
 | swə  | to be many          | intensifier                                                                              |

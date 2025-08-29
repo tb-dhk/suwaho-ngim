@@ -2,15 +2,15 @@
 
 | word | meaning               | particle meaning                         | notes                                                         |
 | ---- | --------------------- | ---------------------------------------- | ------------------------------------------------------------- |
+| mə   | to be me              |                                          | pronouns                                                      |
+| nə   | to be you             | ^                                        | ^                                                             |
+| ngə  | to be them/it         | ^                                        | ^                                                             |
 | pə   | to use                | using, with                              |                                                               |
 | tə   | to be along with      | along with                               |                                                               |
 | kə   | to go (towards)       | towards, ending at, for (the benefit of) |                                                               |
 | bə   | to come (from)        | (starting/originating) from              |                                                               |
 | də   | to be at              | at, on, in                               |                                                               |
 | gə   | to be regarding       | in regards to                            |                                                               |
-| mə   | to be me              |                                          | pronouns                                                      |
-| nə   | to be you             | ^                                        | ^                                                             |
-| ngə  | to be them/it         | ^                                        | ^                                                             |
 | fə   | to be compared (to)   | than                                     |                                                               |
 | sə   | to be a thing         |                                          | placeholder noun or verb; can also mean "to exist" or "to do" |
 | hə   | to be of              | of                                       |                                                               |
@@ -22,6 +22,12 @@
 
 | word | meaning             | notes                                                                                    |
 | ---- | ------------------- | ---------------------------------------------------------------------------------------- |
+| mwə  | to think            |                                                                                          |
+| myə  | to know             |                                                                                          |
+| nwə  | to be this          | often used as *nwil.hu* or *nyil.hu*, as a demonstrative                                 |
+| nyə  | to be that          | ^                                                                                        |
+| ngwə | to say              |                                                                                          |
+| ngyə | to help             |                                                                                          |
 | pwə  | to start            | aspect                                                                                   |
 | pyə  | to finish           | ^                                                                                        |
 | twə  | to continue         | ^                                                                                        |
@@ -34,12 +40,6 @@
 | dyə  | to need             |                                                                                          |
 | gwə  | to be a condition   | often used as *gwi.gu*, meaning "in the condition of" or "if"                            |
 | gyə  | to be possible      |                                                                                          |
-| mwə  | to think            |                                                                                          |
-| myə  | to know             |                                                                                          |
-| nwə  | to be this          | often used as *nwil.hu* or *nyil.hu*, as a demonstrative                                 |
-| nyə  | to be that          | ^                                                                                        |
-| ngwə | to talk / to say    |                                                                                          |
-| ngyə | to help             |                                                                                          |
 | fwə  | to be also          | quantifiers                                                                              |
 | fyə  | to be only          | ^                                                                                        |
 | swə  | to be many          | intensifier                                                                              |
