@@ -16,6 +16,7 @@ vowels are written as follows:
 |   e   |  ə   |  i   |
 |   a   |  ^   |  o   |
 |   ō   |  ^   |  u   |
+
 for cases where only ascii is allowed, vowels can be written as follows:
 
 | light | neut | dark |
