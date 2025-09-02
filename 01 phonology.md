@@ -28,9 +28,7 @@ there are three vowel classes, each with a light-dark vowel pair.
 
 # syllable structure
 the syllable structure is (I)(M)V(C) for the first syllable, and I(M)V(C) for all others.
-the following combinations are not allowed:
-- MV pairs wu, wo, ji
-- adjacent vowels
+MV pairs wu, wo, ji are not allowed, while adjacent vowels are not allowed in native words but allowed for loanwordsx 
 ```
 V = a e i o ō u ə
 I = p t k b d g m n ŋ f s h l
@@ -40,8 +38,6 @@ C = p t k m n ŋ l
 $i = I?M?VC?
 $s = IM?VC?
 words: $i $i$s $i$s$s
-
-reject: VV
 ```
 words can consist of several syllables.
 # sound change rules
@@ -62,6 +58,6 @@ note that these only apply to adjacent consonants within the same word.
 	- manpa -> mampa
 	- manka -> maŋka
 # stress
-each word (group of syllables, separated by a space) has its first syllable stressed. there are words that, for grammatical reasons, have periods (.) in them. the first syllable after each period should be stressed. in cases where adjacent syllables should be [[02 orthography]]stressed, favor the second one.
-for example, *ni.ho* should be read ni**ho**.
-_mannil.ho_ should be read **man**nil**ho**.
+each word (group of syllables, separated by a space) has its first syllable stressed. there are syllables that have dots under them (◌̣). the first syllable after each period should be stressed. in cases where adjacent syllables should be stressed, favor the second one.
+for example, *nihọ* should be read ni**ho**.
+_mannilhọ_ should be read **man**nil**ho**.

@@ -25,6 +25,7 @@ for cases where only ascii is allowed, vowels can be written as follows:
 |   a   |  ^   |  o   |
 |  oh   |  ^   |  u   |
 
+dots (◌̣) are written under vowels of stressed syllables (other than the first).
 # syllabary
 this is a hangul-inspired syllabary.
 each syllable consists of the following:

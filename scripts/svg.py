@@ -66,7 +66,7 @@ def parse_syllable(syllable):
     after = syllable[idx + len(vowel):]
 
     # glide detection
-    if before[-1] in GLIDES:
+    if before and before[-1] in GLIDES:
         glide = before[-1]
         initial = before[:-1] if len(before) > 1 else None
     else:
@@ -95,6 +95,15 @@ def draw_consonant(svg, x_offset, consonant, final=False, row_offset=0):
         SubElement(svg, "circle", {
             "cx": str(cx), "cy": str(cy),
             "r": "50",
+            "style": "fill:#000;stroke-width:5;stroke:white"
+        })
+    else:
+        SubElement(svg, "polyline", {
+            "points": f"{cx-40} {cy-40} {cx+40} {cy+40}",
+            "style": "fill:#000;stroke-width:5;stroke:white"
+        })
+        SubElement(svg, "polyline", {
+            "points": f"{cx+40} {cy-40} {cx-40} {cy+40}",
             "style": "fill:#000;stroke-width:5;stroke:white"
         })
 
@@ -194,7 +203,7 @@ def word_to_svg_points(word, x_offset, row_offset=0):
 
 def text_to_svg(text):
     lines = text.split("\n")
-    max_words_in_line = max(len(line.split()) for line in lines)
+    max_words_in_line = max(len(line.split(" ")) for line in lines)
     svg_width = max_words_in_line * BLOCK_WIDTH
     svg_height = len(lines) * BLOCK_HEIGHT
 
@@ -212,17 +221,14 @@ def text_to_svg(text):
 
         for i, word in enumerate(words):
             x_offset = i * BLOCK_WIDTH
-            try:
+            if word:
                 points, middle_line, initial, final = word_to_svg_points(word, x_offset)
-            except:
-                pass
-            else:
+
                 # adjust all y-coordinates in points for row offset
                 points = [f"{x},{float(y)+row_offset}" for x, y in (pt.split(",") for pt in points)]
 
                 # draw initial consonant if present
-                if initial:
-                    draw_consonant(svg, x_offset, initial, final=False, row_offset=row_offset)
+                draw_consonant(svg, x_offset, initial, final=False, row_offset=row_offset)
 
                 # polyline for vowel/glide
                 SubElement(svg, "polyline", {
@@ -240,15 +246,13 @@ def text_to_svg(text):
                     })
 
                 # draw final consonant if present
-                if final:
-                    draw_consonant(svg, x_offset, final, final=True, row_offset=row_offset)
+                draw_consonant(svg, x_offset, final, final=True, row_offset=row_offset)
 
     rough_string = tostring(svg, "utf-8")
     reparsed = minidom.parseString(rough_string)
     return reparsed.toprettyxml(indent="  ")
 
-# example usage
-text = "puh tuh kuh\nbuh duh guh\nmuh nuh nguh \nfuh suh huh\n luh"
+text = "ha wi men del"
 svg_code = text_to_svg(text)
 with open("test.svg", "w") as f:
     f.write(svg_code)
