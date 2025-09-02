@@ -1,11 +1,11 @@
 # phoneme sets
-C = ["m","n","ng","p","t","k","b","d","g","f","s","h","l"]
-G = ["w","y"]
-V = ["e","i","a","o","ō","u","ə"]
-F = ["p","t","k","m","n","ng","l"]
+C = ("m","n","ng","p","t","k","b","d","g","f","s","h","l")
+G = ("w","y")
+V = ("e","i","a","o","ō","u","ə")
+F = ("p","t","k","m","n","ng","l")
 
-C_block = C + G + [c+g for c in C for g in G]  # C, G, or C+G
-V_block = V + [v+f for v in V for f in F]     # V or V+F
+C_block = C + G + tuple(c+g for c in C for g in G)  # C, G, or C+G
+V_block = V + tuple(v+f for v in V for f in F)     # V or V+F
 
 # build a master alphabet order
 alphabet = C + G + V  # base symbols only
@@ -26,11 +26,10 @@ def expand_syllable(syllables):
             new_syllables.append(syl)
     return new_syllables
 
-def generate_words(start_syllables, iterations):
-    current_syllables = start_syllables[:]
+def generate_words(syllables, iterations):
     for _ in range(iterations):
-        current_syllables = expand_syllable(current_syllables)
-    return current_syllables
+        syllables = expand_syllable(syllables)
+    return syllables
 
 def sort_key(word):
     """convert word into tuple of ranks for sorting"""
@@ -38,11 +37,11 @@ def sort_key(word):
     i = 0
     while i < len(word):
         # check for digraphs like "ng" or long symbols like "ō"
-        if word[i:i+2] in order:  
-            key.append(order[word[i:i+2]])
+        if (k := order.get(word[i:i+2])) is not None:  
+            key.append(k)
             i += 2
-        elif word[i] in order:
-            key.append(order[word[i]])
+        elif (k := order.get(word[i])) is not None:
+            key.append(k)
             i += 1
         else:
             # fallback: put unknowns at end
