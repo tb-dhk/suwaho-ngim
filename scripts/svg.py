@@ -78,32 +78,33 @@ def draw_consonant(svg, x_offset, consonant, final=False, row_offset=0):
     cx = x_offset + 150
     cy = 100 + (final * 200) + row_offset
 
-    if shape == "square":
-        SubElement(svg, "rect", {
-            "x": str(cx - 50), "y": str(cy - 50),
-            "width": "100", "height": "100",
-            "style": "fill:#000;stroke-width:5;stroke:white"
-        })
-    elif shape == "triangle":
-        SubElement(svg, "polygon", {
-            "points": f"{cx},{cy-50} {cx-57.74},{cy+50} {cx+57.74},{cy+50}",
-            "style": "fill:#000;stroke-width:5;stroke:white"
-        })
-    elif shape == "circle":
-        SubElement(svg, "circle", {
-            "cx": str(cx), "cy": str(cy),
-            "r": "50",
-            "style": "fill:#000;stroke-width:5;stroke:white"
-        })
-    else:
-        SubElement(svg, "polyline", {
-            "points": f"{cx-40} {cy-40} {cx+40} {cy+40}",
-            "style": "fill:#000;stroke-width:5;stroke:white"
-        })
-        SubElement(svg, "polyline", {
-            "points": f"{cx+40} {cy-40} {cx-40} {cy+40}",
-            "style": "fill:#000;stroke-width:5;stroke:white"
-        })
+    match shape:
+        case "square":
+            SubElement(svg, "rect", {
+                "x": str(cx - 50), "y": str(cy - 50),
+                "width": "100", "height": "100",
+                "style": "fill:#000;stroke-width:5;stroke:white"
+            })
+        case "triangle":
+            SubElement(svg, "polygon", {
+                "points": f"{cx},{cy-50} {cx-57.74},{cy+50} {cx+57.74},{cy+50}",
+                "style": "fill:#000;stroke-width:5;stroke:white"
+            })
+        case "circle":
+            SubElement(svg, "circle", {
+                "cx": str(cx), "cy": str(cy),
+                "r": "50",
+                "style": "fill:#000;stroke-width:5;stroke:white"
+            })
+        case _:
+            SubElement(svg, "polyline", {
+                "points": f"{cx-40} {cy-40} {cx+40} {cy+40}",
+                "style": "fill:#000;stroke-width:5;stroke:white"
+            })
+            SubElement(svg, "polyline", {
+                "points": f"{cx+40} {cy-40} {cx-40} {cy+40}",
+                "style": "fill:#000;stroke-width:5;stroke:white"
+            })
 
     # draw diacritic if any
     typ = CONSONANT_DIACRITICS.get(consonant)
@@ -190,12 +191,13 @@ def word_to_svg_points(word, x_offset, row_offset=0):
     middle_line = None
     if vp:
         x_mid = x_offset + MIDDLE_LINE_X
-        if vp["height"] == "high":
-            middle_line = (x_mid, BASELINE_Y, x_mid, BASELINE_Y - VERTICAL_OFFSET)
-        elif vp["height"] == "mid":
-            middle_line = (x_mid, BASELINE_Y, x_mid, BASELINE_Y)
-        elif vp["height"] == "low":
-            middle_line = (x_mid, BASELINE_Y, x_mid, BASELINE_Y + VERTICAL_OFFSET)
+        match vp["height"]:
+            case "high":
+                middle_line = (x_mid, BASELINE_Y, x_mid, BASELINE_Y - VERTICAL_OFFSET)
+            case "mid":
+                middle_line = (x_mid, BASELINE_Y, x_mid, BASELINE_Y)
+            case "low":
+                middle_line = (x_mid, BASELINE_Y, x_mid, BASELINE_Y + VERTICAL_OFFSET)
 
     return points, middle_line, initial, final
 
