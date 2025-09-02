@@ -125,21 +125,22 @@ def draw_consonant(svg, x_offset, consonant, final=False, row_offset=0):
         centroid = ((tri_top[0] + tri_left[0] + tri_right[0]) / 3,
                     (tri_top[1] + tri_left[1] + tri_right[1]) / 3)
 
-        if typ == "left":
-            x2, y2 = ((tri_top[0] + tri_left[0]) / 2, (tri_top[1] + tri_left[1]) / 2)
-        elif typ == "right":
-            x2, y2 = ((tri_top[0] + tri_right[0]) / 2, (tri_top[1] + tri_right[1]) / 2)
-        elif typ == "down":
-            x2, y2 = ((tri_left[0] + tri_right[0]) / 2, (tri_left[1] + tri_right[1]) / 2)
-        elif typ == "up":
-            x2, y2 = tri_top
-        elif typ == "dot":
-            SubElement(svg, "circle", {
-                "cx": str(centroid[0]), "cy": str(centroid[1]),
-                "r": str(DOT_RADIUS),
-                "style": "fill:white;stroke-width:0"
-            })
-            return
+        match typ:
+            case "left":
+                x2, y2 = ((tri_top[0] + tri_left[0]) / 2, (tri_top[1] + tri_left[1]) / 2)
+            case "right":
+                x2, y2 = ((tri_top[0] + tri_right[0]) / 2, (tri_top[1] + tri_right[1]) / 2)
+            case "down":
+                x2, y2 = ((tri_left[0] + tri_right[0]) / 2, (tri_left[1] + tri_right[1]) / 2)
+            case "up":
+                x2, y2 = tri_top
+            case "dot":
+                SubElement(svg, "circle", {
+                    "cx": str(centroid[0]), "cy": str(centroid[1]),
+                    "r": str(DOT_RADIUS),
+                    "style": "fill:white;stroke-width:0"
+                })
+                return
 
         SubElement(svg, "line", {
             "x1": str(centroid[0]), "y1": str(centroid[1]),
@@ -148,14 +149,15 @@ def draw_consonant(svg, x_offset, consonant, final=False, row_offset=0):
         })
 
     elif shape in {"square", "circle"}:
-        if typ == "left":
-            x2, y2 = cx - DIACRITIC_LENGTH, cy
-        elif typ == "right":
-            x2, y2 = cx + DIACRITIC_LENGTH, cy
-        elif typ == "down":
-            x2, y2 = cx, cy + DIACRITIC_LENGTH
-        elif typ == "up":
-            x2, y2 = cx, cy - DIACRITIC_LENGTH
+        match typ:
+            case "left":
+                x2, y2 = cx - DIACRITIC_LENGTH, cy
+            case "right":
+                x2, y2 = cx + DIACRITIC_LENGTH, cy
+            case "down":
+                x2, y2 = cx, cy + DIACRITIC_LENGTH
+            case "up":
+                x2, y2 = cx, cy - DIACRITIC_LENGTH
 
         SubElement(svg, "line", {
             "x1": str(cx), "y1": str(cy),
