@@ -49,7 +49,7 @@ def sort_key(word):
             i += 1
     return tuple(key)
 
-start = ["ə"] 
+start = ["ə"]
 all_words = generate_words(start, 2)
 
 # sort using custom alphabet
