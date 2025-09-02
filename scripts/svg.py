@@ -58,21 +58,19 @@ def parse_syllable(syllable):
         if v in syllable:
             vowel = v
             break
-    if not vowel:
+    else:
         raise ValueError(f"No vowel in {syllable}")
 
-    idx = syllable.find(vowel)
-    before = syllable[:idx]
-    after = syllable[idx + len(vowel):]
+    before,_,after = syllable.partition(vowel)
 
     # glide detection
     if before and before[-1] in GLIDES:
         glide = before[-1]
-        initial = before[:-1] if len(before) > 1 else None
-    else:
-        initial = before if before else None
+        before = before[:-1]
 
-    final = after if after else None
+    initial = before or None
+
+    final = after or None
     return initial, glide, vowel, final
 
 def draw_consonant(svg, x_offset, consonant, final=False, row_offset=0):
@@ -80,32 +78,33 @@ def draw_consonant(svg, x_offset, consonant, final=False, row_offset=0):
     cx = x_offset + 150
     cy = 100 + (final * 200) + row_offset
 
-    if shape == "square":
-        SubElement(svg, "rect", {
-            "x": str(cx - 50), "y": str(cy - 50),
-            "width": "100", "height": "100",
-            "style": "fill:#000;stroke-width:5;stroke:white"
-        })
-    elif shape == "triangle":
-        SubElement(svg, "polygon", {
-            "points": f"{cx},{cy-50} {cx-57.74},{cy+50} {cx+57.74},{cy+50}",
-            "style": "fill:#000;stroke-width:5;stroke:white"
-        })
-    elif shape == "circle":
-        SubElement(svg, "circle", {
-            "cx": str(cx), "cy": str(cy),
-            "r": "50",
-            "style": "fill:#000;stroke-width:5;stroke:white"
-        })
-    else:
-        SubElement(svg, "polyline", {
-            "points": f"{cx-40} {cy-40} {cx+40} {cy+40}",
-            "style": "fill:#000;stroke-width:5;stroke:white"
-        })
-        SubElement(svg, "polyline", {
-            "points": f"{cx+40} {cy-40} {cx-40} {cy+40}",
-            "style": "fill:#000;stroke-width:5;stroke:white"
-        })
+    match shape:
+        case "square":
+            SubElement(svg, "rect", {
+                "x": str(cx - 50), "y": str(cy - 50),
+                "width": "100", "height": "100",
+                "style": "fill:#000;stroke-width:5;stroke:white"
+            })
+        case "triangle":
+            SubElement(svg, "polygon", {
+                "points": f"{cx},{cy-50} {cx-57.74},{cy+50} {cx+57.74},{cy+50}",
+                "style": "fill:#000;stroke-width:5;stroke:white"
+            })
+        case "circle":
+            SubElement(svg, "circle", {
+                "cx": str(cx), "cy": str(cy),
+                "r": "50",
+                "style": "fill:#000;stroke-width:5;stroke:white"
+            })
+        case _:
+            SubElement(svg, "polyline", {
+                "points": f"{cx-40} {cy-40} {cx+40} {cy+40}",
+                "style": "fill:#000;stroke-width:5;stroke:white"
+            })
+            SubElement(svg, "polyline", {
+                "points": f"{cx+40} {cy-40} {cx-40} {cy+40}",
+                "style": "fill:#000;stroke-width:5;stroke:white"
+            })
 
     # draw diacritic if any
     typ = CONSONANT_DIACRITICS.get(consonant)
@@ -126,21 +125,22 @@ def draw_consonant(svg, x_offset, consonant, final=False, row_offset=0):
         centroid = ((tri_top[0] + tri_left[0] + tri_right[0]) / 3,
                     (tri_top[1] + tri_left[1] + tri_right[1]) / 3)
 
-        if typ == "left":
-            x2, y2 = ((tri_top[0] + tri_left[0]) / 2, (tri_top[1] + tri_left[1]) / 2)
-        elif typ == "right":
-            x2, y2 = ((tri_top[0] + tri_right[0]) / 2, (tri_top[1] + tri_right[1]) / 2)
-        elif typ == "down":
-            x2, y2 = ((tri_left[0] + tri_right[0]) / 2, (tri_left[1] + tri_right[1]) / 2)
-        elif typ == "up":
-            x2, y2 = tri_top
-        elif typ == "dot":
-            SubElement(svg, "circle", {
-                "cx": str(centroid[0]), "cy": str(centroid[1]),
-                "r": str(DOT_RADIUS),
-                "style": "fill:white;stroke-width:0"
-            })
-            return
+        match typ:
+            case "left":
+                x2, y2 = ((tri_top[0] + tri_left[0]) / 2, (tri_top[1] + tri_left[1]) / 2)
+            case "right":
+                x2, y2 = ((tri_top[0] + tri_right[0]) / 2, (tri_top[1] + tri_right[1]) / 2)
+            case "down":
+                x2, y2 = ((tri_left[0] + tri_right[0]) / 2, (tri_left[1] + tri_right[1]) / 2)
+            case "up":
+                x2, y2 = tri_top
+            case "dot":
+                SubElement(svg, "circle", {
+                    "cx": str(centroid[0]), "cy": str(centroid[1]),
+                    "r": str(DOT_RADIUS),
+                    "style": "fill:white;stroke-width:0"
+                })
+                return
 
         SubElement(svg, "line", {
             "x1": str(centroid[0]), "y1": str(centroid[1]),
@@ -149,14 +149,15 @@ def draw_consonant(svg, x_offset, consonant, final=False, row_offset=0):
         })
 
     elif shape in {"square", "circle"}:
-        if typ == "left":
-            x2, y2 = cx - DIACRITIC_LENGTH, cy
-        elif typ == "right":
-            x2, y2 = cx + DIACRITIC_LENGTH, cy
-        elif typ == "down":
-            x2, y2 = cx, cy + DIACRITIC_LENGTH
-        elif typ == "up":
-            x2, y2 = cx, cy - DIACRITIC_LENGTH
+        match typ:
+            case "left":
+                x2, y2 = cx - DIACRITIC_LENGTH, cy
+            case "right":
+                x2, y2 = cx + DIACRITIC_LENGTH, cy
+            case "down":
+                x2, y2 = cx, cy + DIACRITIC_LENGTH
+            case "up":
+                x2, y2 = cx, cy - DIACRITIC_LENGTH
 
         SubElement(svg, "line", {
             "x1": str(cx), "y1": str(cy),
@@ -192,18 +193,24 @@ def word_to_svg_points(word, x_offset, row_offset=0):
     middle_line = None
     if vp:
         x_mid = x_offset + MIDDLE_LINE_X
-        if vp["height"] == "high":
-            middle_line = (x_mid, BASELINE_Y, x_mid, BASELINE_Y - VERTICAL_OFFSET)
-        elif vp["height"] == "mid":
-            middle_line = (x_mid, BASELINE_Y, x_mid, BASELINE_Y)
-        elif vp["height"] == "low":
-            middle_line = (x_mid, BASELINE_Y, x_mid, BASELINE_Y + VERTICAL_OFFSET)
+        match vp["height"]:
+            case "high":
+                middle_line = (x_mid, BASELINE_Y, x_mid, BASELINE_Y - VERTICAL_OFFSET)
+            case "mid":
+                middle_line = (x_mid, BASELINE_Y, x_mid, BASELINE_Y)
+            case "low":
+                middle_line = (x_mid, BASELINE_Y, x_mid, BASELINE_Y + VERTICAL_OFFSET)
 
     return points, middle_line, initial, final
 
+def add_one_if_nonzero(x):
+    return x + bool(x)
+def count_pieces(s, sep):
+    return add_one_if_nonzero(s.count(sep))
+
 def text_to_svg(text):
     lines = text.split("\n")
-    max_words_in_line = max(len(line.split(" ")) for line in lines)
+    max_words_in_line = max(count_pieces(line," ") for line in lines)
     svg_width = max_words_in_line * BLOCK_WIDTH
     svg_height = len(lines) * BLOCK_HEIGHT
 
