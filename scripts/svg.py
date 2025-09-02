@@ -58,21 +58,19 @@ def parse_syllable(syllable):
         if v in syllable:
             vowel = v
             break
-    if not vowel:
+    else:
         raise ValueError(f"No vowel in {syllable}")
 
-    idx = syllable.find(vowel)
-    before = syllable[:idx]
-    after = syllable[idx + len(vowel):]
+    before,_,after = syllable.partition(vowel)
 
     # glide detection
     if before and before[-1] in GLIDES:
         glide = before[-1]
-        initial = before[:-1] if len(before) > 1 else None
-    else:
-        initial = before if before else None
+        before = before[:-1]
 
-    final = after if after else None
+    initial = before or None
+
+    final = after or None
     return initial, glide, vowel, final
 
 def draw_consonant(svg, x_offset, consonant, final=False, row_offset=0):
