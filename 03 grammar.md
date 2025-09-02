@@ -66,17 +66,17 @@ the following 11 verbs, along with _mə_, _nə_, _ngə_ and _sə_ (i.e. all verb
 
 | verb | meaning               | particle | particle meaning                         | case / role            |
 | ---- | --------------------- | -------- | ---------------------------------------- | ---------------------- |
-| pə   | to use                | -pọ̄/pụ | using                                    | instrumental           |
-| tə   | to be along with      | -tọ̄/tụ | along with                               | comitative             |
-| kə   | to go (towards)       | -kọ̄/kụ | towards, ending at, for (the benefit of) | allative / benefactive |
-| bə   | to come (from)        | -bọ̄/bụ | starting/originating from                | ablative               |
-| də   | to be at              | -dọ̄/dụ | at, on, in                               | locative               |
-| gə   | to be regarding       | -gọ̄/gụ | in regards to                            | topical                |
-| fə   | to be compared (to)   | -fọ̄/fụ | than                                     | comparative            |
-| hə   | to be of              | -họ̄/hụ | of                                       | genitive               |
-| lə   | to be a subject       | -lọ̄/lụ | subject marker                           | nominative             |
-| yə   | to be a direct object | -yọ̄/yụ | direct object marker                     | accusative             |
-| wə   | to be an alternative  | -wọ̄/wụ | or, alternatively                        | disjunctive            |
+| pə   | to use                | -pọ̄/pụ   | using                                    | instrumental           |
+| tə   | to be along with      | -tọ̄/tụ   | along with                               | comitative             |
+| kə   | to go (towards)       | -kọ̄/kụ   | towards, ending at, for (the benefit of) | allative / benefactive |
+| bə   | to come (from)        | -bọ̄/bụ   | starting/originating from                | ablative               |
+| də   | to be at              | -dọ̄/dụ   | at, on, in                               | locative               |
+| gə   | to be regarding       | -gọ̄/gụ   | in regards to                            | topical                |
+| fə   | to be compared (to)   | -fọ̄/fụ   | than                                     | comparative            |
+| hə   | to be of              | -họ̄/hụ   | of                                       | genitive               |
+| lə   | to be a subject       | -lọ̄/lụ   | subject marker                           | nominative             |
+| yə   | to be a direct object | -yọ̄/yụ   | direct object marker                     | accusative             |
+| wə   | to be an alternative  | -wọ̄/wụ   | or, alternatively                        | disjunctive            |
 _milụ nihụ so._ i am your thing / i am yours.  
 _ngigụ milụ ko._ in regards to that, i am moving.
 
