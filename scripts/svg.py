@@ -203,9 +203,14 @@ def word_to_svg_points(word, x_offset, row_offset=0):
 
     return points, middle_line, initial, final
 
+def add_one_if_nonzero(x):
+    return x + bool(x)
+def count_pieces(s, sep):
+    return add_one_if_nonzero(s.count(sep))
+
 def text_to_svg(text):
     lines = text.split("\n")
-    max_words_in_line = max(len(line.split(" ")) for line in lines)
+    max_words_in_line = max(count_pieces(line," ") for line in lines)
     svg_width = max_words_in_line * BLOCK_WIDTH
     svg_height = len(lines) * BLOCK_HEIGHT
 
