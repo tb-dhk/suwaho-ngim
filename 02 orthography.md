@@ -42,28 +42,28 @@ the base shape is based on the placement of the consonant.
 - triangle for alveolar consonants
 - circle for velar consonants
 
-![m, n and ŋ respectively](assets/shapes.svg)
+![m, n and ŋ respectively](shapes.svg)
 
 the diacritics are as follows:
 - line going to the left for voiced plosives
 - line going to the right for unvoiced plosives
 - line going down for fricatives
 
-![m, p, b and f respectively](assets/diacritics.svg)
+![m, p, b and f respectively](diacritics.svg)
 
 in the case of plosives with no audible release functioning as finals, they are represented with a line going upwards to avoid leaning towards voiced/unvoiced plosives.
 
-![pap](assets/pap.svg)
+![pap](pap.svg)
 
 due to the fact that alveolar consonants are usually represented by a triangle, the diacritics look slightly different.
 
 the main differences are that the line extends at a slightly different angle to meet the left and right lines of the triangle at their midpoints. there is also an extra diacritic, the dot, to represent l.
 
-![n, t, d, s, and l respectively](assets/alveolar.svg)
+![n, t, d, s, and l respectively](alveolar.svg)
 
 the top line still comes from the top, meeting the triangle at a corner instead of the midpoint of a line.
 
-![tat](assets/tat.svg)
+![tat](tat.svg)
 
 ## medial and nucleus
 the middle line can have 3 lines extending out from it.
@@ -75,16 +75,16 @@ each line can either extend up or down, or not be present.
 
 the medials w and y are represented with lines going up and down respectively.
 
-![ə, wə and yə respectively](assets/medials.svg)
+![ə, wə and yə respectively](medials.svg)
 
 the light vowels have a line going up on the right side. note that the middle line changes with the group (up for high, down for low).
 
-![e, a, and ō respectively](assets/light%20vowels.svg)
+![e, a, and ō respectively](light%20vowels.svg)
 
 the dark vowels are similar, but the line on the right side goes down instead.
 
-![i, o and u respectively](assets/dark%20vowels.svg)
+![i, o and u respectively](dark%20vowels.svg)
 
 the vowel ə can be represented as a neutral vowel (no line on the right side) in any class (any line in the middle), but for the sake of simplicity, the middle line is usually omitted.
 
-![ə](assets/uh.svg)
+![ə](uh.svg)
