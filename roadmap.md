@@ -1,0 +1,15 @@
+- [x] decide phonology 
+- [x] decide grammar 
+- [ ] decide core vocabulary (biggest hurdle by far) 
+	- [x] tier i
+	- [x] tier ii
+	- [ ] tier iii (further tiers can be decided on later)
+- [ ] finalise latin orthography
+	- [x] settle vowels
+	- [ ] settle ascii vowels
+	- [ ] settle ng
+- [ ] finalise orthography
+	- [ ] decide on whether to use the syllabary or something else
+- [ ] create font 
+- [ ] create keyboard 
+- [ ] create guide and lessons
