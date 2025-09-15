@@ -4,3 +4,6 @@ this language is built on the following features:
 - agglutination
 - free word order with suffix case markers
 - vowel harmony
+
+> [!warning] warning
+> this documentation is currently incomplete.

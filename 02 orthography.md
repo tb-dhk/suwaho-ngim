@@ -13,20 +13,15 @@ vowels are written as follows:
 
 | light | neut | dark |
 | :---: | :--: | :--: |
-|   e   |  ə   |  i   |
-|   a   |  ^   |  o   |
-|   ō   |  ^   |  u   |
+|   e   |  ë   |  i   |
+|   a   |  ^   |  ö   |
+|   o   |  ^   |  u   |
 
-for cases where only ascii is allowed, vowels can be written as follows:
-
-| light | neut | dark |
-| :---: | :--: | :--: |
-|   e   |  uh  |  i   |
-|   a   |  ^   |  o   |
-|  oh   |  ^   |  u   |
-
-dots (◌̣) are written under vowels of stressed syllables (other than the first).
+dots (◌̣) are written under vowels of stressed syllables (other than the first letter).
 # syllabary
+> [!warning] warning
+> this syllabary is currently being revised, so all information has a chance of being innacurate.
+
 this is a hangul-inspired syllabary.
 each syllable consists of the following:
 - a shape on top to represent the initial
